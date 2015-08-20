@@ -7,7 +7,7 @@ $(document).ready(function(){
 
     $("#changeColor").click(function(){
         var circle = $("<div>",{
-            class : "circle",
+            class : "circle clonedCircle",
         });
         $(circle).css({
             top: circleOffset.offset().top,
@@ -15,6 +15,11 @@ $(document).ready(function(){
             "border-color": circleColor.css("border-color")
         });
         $body.append(circle);
+        $(".clonedCircle").hover(function(){
+            $(this).animate({opacity: 0}, function(){
+                $(this).remove();
+            });
+        });
         var r= Math.floor((Math.random()*256));
         var g= Math.floor((Math.random()*256));
         var b= Math.floor((Math.random()*256));
